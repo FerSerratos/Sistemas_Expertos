@@ -1,0 +1,86 @@
+class BaseDeHechos:
+    def __init__(self):
+        # Diccionario para almacenar los hechos
+        self.hechos = {}
+
+    def agregar_hecho(self, entidad, atributo, valor):
+        """Agrega un hecho a la base de hechos."""
+        if entidad not in self.hechos:
+            self.hechos[entidad] = {}
+        self.hechos[entidad][atributo] = valor
+        print(f"Hecho agregado: {entidad} -> {atributo}: {valor}")
+
+    def consultar_hecho(self, entidad, atributo):
+        """Consulta un hecho en la base de hechos."""
+        if entidad in self.hechos and atributo in self.hechos[entidad]:
+            return self.hechos[entidad][atributo]
+        else:
+            return "No tengo esa información."
+
+    def eliminar_hecho(self, entidad, atributo):
+        """Elimina un hecho de la base de hechos."""
+        if entidad in self.hechos and atributo in self.hechos[entidad]:
+            del self.hechos[entidad][atributo]
+            print(f"Hecho eliminado: {entidad} -> {atributo}")
+        else:
+            print("El hecho que intentas eliminar no existe.")
+
+    def listar_entidades(self):
+        """Lista todas las entidades en la base de hechos."""
+        return list(self.hechos.keys())
+
+    def listar_atributos(self, entidad):
+        """Lista todos los atributos de una entidad."""
+        if entidad in self.hechos:
+            return list(self.hechos[entidad].keys())
+        else:
+            return "No tengo información sobre esa entidad."
+
+# Ejemplo de uso interactivo de la base de hechos
+
+def interactuar_con_base_de_hechos():
+    base = BaseDeHechos()
+
+    while True:
+        print("\n¿Qué te gustaría hacer?")
+        print("1. Agregar un hecho")
+        print("2. Consultar un hecho")
+        print("3. Eliminar un hecho")
+        print("4. Listar todas las entidades")
+        print("5. Listar atributos de una entidad")
+        print("6. Salir")
+
+        opcion = input("Elige una opción (1/2/3/4/5/6): ")
+
+        if opcion == "1":
+            entidad = input("Introduce la entidad (ej. 'Francia'): ")
+            atributo = input("Introduce el atributo (ej. 'capital'): ")
+            valor = input("Introduce el valor (ej. 'París'): ")
+            base.agregar_hecho(entidad, atributo, valor)
+
+        elif opcion == "2":
+            entidad = input("Introduce la entidad que quieres consultar: ")
+            atributo = input("Introduce el atributo que quieres consultar: ")
+            respuesta = base.consultar_hecho(entidad, atributo)
+            print(f"Respuesta: {respuesta}")
+
+        elif opcion == "3":
+            entidad = input("Introduce la entidad cuyo hecho quieres eliminar: ")
+            atributo = input("Introduce el atributo del hecho que quieres eliminar: ")
+            base.eliminar_hecho(entidad, atributo)
+
+        elif opcion == "4":
+            entidades = base.listar_entidades()
+            print(f"Entidades en la base de hechos: {entidades}")
+
+        elif opcion == "5":
+            entidad = input("Introduce la entidad para listar sus atributos: ")
+            atributos = base.listar_atributos(entidad)
+            print(f"Atributos de {entidad}: {atributos}")
+
+        elif opcion == "6":
+            print("Saliendo del sistema de base de hechos.")
+            break
+
+        else:
+            print("Opción no válida. Por favor, e
