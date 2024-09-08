@@ -1,0 +1,75 @@
+class ModuloCircuitosElectricos:
+    def __init__(self):
+        self.hechos = {
+            "serie": "En un circuito en serie, las resistencias se suman directamente. La corriente es la misma a través de todas las resistencias.",
+            "paralelo": "En un circuito en paralelo, la resistencia total es menor que la resistencia más pequeña del circuito. El voltaje es el mismo a través de todas las resistencias.",
+            "ley_de_ohm": "La ley de Ohm establece que V = I * R, donde V es el voltaje, I es la corriente y R es la resistencia.",
+        }
+        self.explicaciones = {
+            "serie": "Cuando las resistencias están en serie, la corriente que fluye a través de cada resistencia es la misma, y la resistencia total del circuito es la suma de las resistencias individuales.",
+            "paralelo": "En un circuito en paralelo, la corriente se divide entre las ramas, y la resistencia total se calcula usando la fórmula 1/R_total = 1/R1 + 1/R2 + ... + 1/Rn.",
+        }
+
+    def consultar_hecho(self, configuracion):
+        """Consulta un hecho sobre una configuración de resistencias."""
+        return self.hechos.get(configuracion, "No tengo información sobre esa configuración.")
+
+    def explicar(self, configuracion):
+        """Proporciona una explicación sobre una configuración de resistencias."""
+        return self.explicaciones.get(configuracion, "No tengo explicación disponible para esa configuración.")
+
+    def calcular_resistencia_serie(self, resistencias):
+        """Calcula la resistencia total en un circuito en serie."""
+        return sum(resistencias)
+
+    def calcular_resistencia_paralelo(self, resistencias):
+        """Calcula la resistencia total en un circuito en paralelo."""
+        if len(resistencias) == 0:
+            return 0
+        return 1 / sum(1 / r for r in resistencias)
+
+# Ejemplo de uso interactivo del módulo de circuitos eléctricos
+
+def interactuar_con_modulo_circuitos():
+    base = ModuloCircuitosElectricos()
+
+    while True:
+        print("\n¿Qué te gustaría hacer?")
+        print("1. Consultar un hecho sobre circuitos eléctricos")
+        print("2. Obtener explicación sobre una configuración")
+        print("3. Calcular resistencia en serie")
+        print("4. Calcular resistencia en paralelo")
+        print("5. Salir")
+
+        opcion = input("Elige una opción (1/2/3/4/5): ")
+
+        if opcion == "1":
+            configuracion = input("Introduce la configuración que quieres consultar (ej. 'serie', 'paralelo'): ")
+            respuesta = base.consultar_hecho(configuracion)
+            print(f"Hecho: {respuesta}")
+
+        elif opcion == "2":
+            configuracion = input("Introduce la configuración cuya explicación quieres obtener (ej. 'serie', 'paralelo'): ")
+            explicacion = base.explicar(configuracion)
+            print(f"Explicación: {explicacion}")
+
+        elif opcion == "3":
+            resistencias = list(map(float, input("Introduce las resistencias en serie separadas por espacio: ").split()))
+            resistencia_total = base.calcular_resistencia_serie(resistencias)
+            print(f"La resistencia total en serie es: {resistencia_total} ohmios")
+
+        elif opcion == "4":
+            resistencias = list(map(float, input("Introduce las resistencias en paralelo separadas por espacio: ").split()))
+            resistencia_total = base.calcular_resistencia_paralelo(resistencias)
+            print(f"La resistencia total en paralelo es: {resistencia_total:.2f} ohmios")
+
+        elif opcion == "5":
+            print("Saliendo del sistema de circuitos eléctricos.")
+            break
+
+        else:
+            print("Opción no válida. Por favor, elige una opción correcta.")
+
+# Ejecutar el programa interactivo
+if __name__ == "__main__":
+    interactuar_con_modulo_circuitos()
