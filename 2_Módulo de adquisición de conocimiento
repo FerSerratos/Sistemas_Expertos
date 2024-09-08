@@ -1,0 +1,50 @@
+class BaseConocimiento:
+    def __init__(self):
+        self.hechos = {}
+
+    def agregar_hecho(self, entidad, atributo, valor):
+        # Almacena un hecho en el formato: {entidad: {atributo: valor}}
+        if entidad not in self.hechos:
+            self.hechos[entidad] = {}
+        self.hechos[entidad][atributo] = valor
+
+    def consultar(self, entidad, atributo):
+        # Consulta un hecho sobre una entidad y devuelve el valor del atributo
+        if entidad in self.hechos and atributo in self.hechos[entidad]:
+            return self.hechos[entidad][atributo]
+        else:
+            return "No tengo esa información."
+
+def interactuar_con_base_conocimiento():
+    base = BaseConocimiento()
+
+    while True:
+        print("\n¿Qué te gustaría hacer?")
+        print("1. Agregar un hecho")
+        print("2. Consultar un hecho")
+        print("3. Salir")
+
+        opcion = input("Elige una opción (1/2/3): ")
+
+        if opcion == "1":
+            entidad = input("Introduce la entidad (ej. 'Francia'): ")
+            atributo = input("Introduce el atributo (ej. 'capital'): ")
+            valor = input("Introduce el valor (ej. 'París'): ")
+            base.agregar_hecho(entidad, atributo, valor)
+            print(f"Hecho agregado: {entidad} -> {atributo}: {valor}")
+
+        elif opcion == "2":
+            entidad = input("Introduce la entidad que quieres consultar: ")
+            atributo = input("Introduce el atributo que quieres consultar: ")
+            respuesta = base.consultar(entidad, atributo)
+            print(f"Respuesta: {respuesta}")
+
+        elif opcion == "3":
+            print("Saliendo del sistema de conocimiento.")
+            break
+
+        else:
+            print("Opción no válida. Por favor, elige una opción correcta.")
+
+# Ejecutar el programa interactivo
+interactuar_con_base_conocimiento()
