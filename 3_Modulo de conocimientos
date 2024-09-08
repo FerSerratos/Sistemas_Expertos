@@ -1,0 +1,77 @@
+import json
+
+class BaseConocimiento:
+    def __init__(self, archivo=None):
+        self.hechos = {}
+        if archivo:
+            self.cargar_conocimiento(archivo)
+
+    def agregar_hecho(self, entidad, atributo, valor):
+        """Agrega un hecho a la base de conocimiento."""
+        if entidad not in self.hechos:
+            self.hechos[entidad] = {}
+        self.hechos[entidad][atributo] = valor
+
+    def consultar(self, entidad, atributo):
+        """Consulta un hecho en la base de conocimiento."""
+        if entidad in self.hechos and atributo in self.hechos[entidad]:
+            return self.hechos[entidad][atributo]
+        else:
+            return "No tengo esa información."
+
+    def guardar_conocimiento(self, archivo):
+        """Guarda los hechos en un archivo JSON."""
+        with open(archivo, 'w') as f:
+            json.dump(self.hechos, f)
+        print(f"Conocimiento guardado en {archivo}")
+
+    def cargar_conocimiento(self, archivo):
+        """Carga los hechos desde un archivo JSON."""
+        try:
+            with open(archivo, 'r') as f:
+                self.hechos = json.load(f)
+            print(f"Conocimiento cargado desde {archivo}")
+        except FileNotFoundError:
+            print(f"Archivo {archivo} no encontrado. Comenzando con base de conocimiento vacía.")
+
+# Ejemplo de uso del módulo como script independiente
+if __name__ == "__main__":
+    base = BaseConocimiento()
+
+    while True:
+        print("\n¿Qué te gustaría hacer?")
+        print("1. Agregar un hecho")
+        print("2. Consultar un hecho")
+        print("3. Guardar conocimiento")
+        print("4. Cargar conocimiento")
+        print("5. Salir")
+
+        opcion = input("Elige una opción (1/2/3/4/5): ")
+
+        if opcion == "1":
+            entidad = input("Introduce la entidad (ej. 'Francia'): ")
+            atributo = input("Introduce el atributo (ej. 'capital'): ")
+            valor = input("Introduce el valor (ej. 'París'): ")
+            base.agregar_hecho(entidad, atributo, valor)
+            print(f"Hecho agregado: {entidad} -> {atributo}: {valor}")
+
+        elif opcion == "2":
+            entidad = input("Introduce la entidad que quieres consultar: ")
+            atributo = input("Introduce el atributo que quieres consultar: ")
+            respuesta = base.consultar(entidad, atributo)
+            print(f"Respuesta: {respuesta}")
+
+        elif opcion == "3":
+            archivo = input("Introduce el nombre del archivo para guardar (ej. 'conocimiento.json'): ")
+            base.guardar_conocimiento(archivo)
+
+        elif opcion == "4":
+            archivo = input("Introduce el nombre del archivo para cargar (ej. 'conocimiento.json'): ")
+            base.cargar_conocimiento(archivo)
+
+        elif opcion == "5":
+            print("Saliendo del sistema de conocimiento.")
+            break
+
+        else:
+            print("Opción no válida. Por favor, elige una opción correcta.")
