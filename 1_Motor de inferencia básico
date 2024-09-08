@@ -1,0 +1,30 @@
+# Sistema experto básico para recomendar películas de cine experimental
+
+# Base de conocimientos (reglas)
+def recomendar_pelicula(genero, decada, estilo):
+    if genero == "surrealismo" and decada == "1920s" and estilo == "vanguardista":
+        return "Un perro andaluz (1929) - Luis Buñuel"
+    elif genero == "documental" and decada == "1960s" and estilo == "experimental":
+        return "Man with a Movie Camera (1929) - Dziga Vertov"
+    elif genero == "drama" and decada == "2000s" and estilo == "narrativo no lineal":
+        return "Memento (2000) - Christopher Nolan"
+    elif genero == "animación" and decada == "1980s" and estilo == "psicodélico":
+        return "Akira (1988) - Katsuhiro Otomo"
+    else:
+        return "No tengo una recomendación específica para tus preferencias."
+
+# Motor de inferencia
+def motor_de_inferencia():
+    print("¡Bienvenido al sistema experto de recomendaciones de cine experimental!")
+    
+    # Preguntas al usuario
+    genero = input("¿Qué tipo de cine experimental te interesa (surrealismo, documental, drama, animación)? ").lower()
+    decada = input("¿De qué década prefieres la película (1920s, 1960s, 2000s, 1980s)? ").lower()
+    estilo = input("¿Qué estilo prefieres (vanguardista, experimental, narrativo no lineal, psicodélico)? ").lower()
+    
+    # Recomendación basada en las respuestas
+    pelicula = recomendar_pelicula(genero, decada, estilo)
+    print(f"Te recomiendo ver: {pelicula}")
+
+# Ejecutar el motor de inferencia
+motor_de_inferencia()
