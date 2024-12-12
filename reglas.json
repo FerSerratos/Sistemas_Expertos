@@ -1,0 +1,94 @@
+{
+    "reglas": [
+        {
+            "condiciones": ["El reloj se atrasa"],
+            "conclusion": "Cristal descalibrado o envejecido",
+            "explicacion": "El cristal de cuarzo puede haber perdido su calibración o envejecido, afectando la precisión del reloj.",
+            "video": "https://www.youtube.com/watch?v=ylGsI1tN_CE"
+        },
+        {
+            "condiciones": ["El reloj se adelanta"],
+            "conclusion": "Cristal descalibrado o con defecto estructural",
+            "explicacion": "Un defecto en el cristal de cuarzo puede hacer que el reloj funcione más rápido de lo normal.",
+            "video": "https://www.youtube.com/watch?v=-lKDx5UQyI8"
+        },
+        {
+            "condiciones": ["El reloj pierde precisión de forma irregular"],
+            "conclusion": "Interferencia electromagnética o oscilación irregular",
+            "explicacion": "Exposición a campos electromagnéticos puede causar que el reloj funcione de manera inconsistente.",
+            "video": "https://www.youtube.com/watch?v=3Krl1-hf0fk"
+        },
+        {
+            "condiciones": ["El segundero se detiene ocasionalmente"],
+            "conclusion": "Suciedad en el mecanismo o conexión defectuosa",
+            "explicacion": "La acumulación de suciedad o conexiones flojas pueden detener el movimiento del segundero.",
+            "video": "https://www.youtube.com/watch?v=SYHXhvnizCs"
+        },
+        {
+            "condiciones": ["El segundero avanza de forma errática"],
+            "conclusion": "Cristal contaminado u oscilación irregular",
+            "explicacion": "Contaminantes en el cristal o problemas en su oscilación pueden causar movimientos erráticos.",
+            "video": "https://www.youtube.com/watch?v=fe8twvk0x5c"
+        },
+        {
+            "condiciones": ["El segundero no avanza pero las otras agujas sí"],
+            "conclusion": "Fallo en la señal del cristal",
+            "explicacion": "Un problema en la señal del cristal puede afectar únicamente al segundero.",
+            "video": "https://www.youtube.com/watch?v=D5bCwdRI1UI"
+        },
+        {
+            "condiciones": ["Se detiene cerca de equipos eléctricos"],
+            "conclusion": "Interferencia electromagnética",
+            "explicacion": "Campos electromagnéticos fuertes pueden interferir con el funcionamiento del reloj.",
+            "video": "https://www.youtube.com/watch?v=3Krl1-hf0fk"
+        },
+        {
+            "condiciones": ["El reloj acumula polvo o suciedad"],
+            "conclusion": "Cristal contaminado o vibración inestable",
+            "explicacion": "La suciedad puede afectar la vibración del cristal, alterando la precisión.",
+            "video": "https://www.youtube.com/watch?v=SYHXhvnizCs"
+        },
+        {
+            "condiciones": ["El reloj se detiene al exponerse al agua"],
+            "conclusion": "Cristal contaminado o fallo en la conexión",
+            "explicacion": "La humedad puede dañar el cristal o las conexiones internas.",
+            "video": "https://www.youtube.com/watch?v=eu_GSTp22Ro"
+        },
+        {
+            "condiciones": ["El reloj no responde tras un golpe"],
+            "conclusion": "Cristal roto o deformado",
+            "explicacion": "Un impacto puede romper o deformar el cristal, deteniendo el reloj.",
+            "video": "https://www.youtube.com/watch?v=qyxdFyB-LNo"
+        },
+        {
+            "condiciones": ["El reloj presenta marcas de humedad"],
+            "conclusion": "Cristal contaminado o conexiones defectuosas",
+            "explicacion": "La humedad puede contaminar el cristal y corroer las conexiones.",
+            "video": "https://www.youtube.com/watch?v=eu_GSTp22Ro"
+        },
+        {
+            "condiciones": ["El reloj tiene componentes sueltos"],
+            "conclusion": "Fallo en la conexión o desajuste del cristal",
+            "explicacion": "Componentes internos sueltos pueden afectar el funcionamiento del reloj.",
+            "video": "https://www.youtube.com/watch?v=SYHXhvnizCs"
+        },
+        {
+            "condiciones": ["Cristal contaminado o vibración inestable", "Fallo en la conexión o desajuste del cristal"],
+            "conclusion": "Requiere limpieza y ajuste del mecanismo",
+            "explicacion": "Cuando el cristal está contaminado y las conexiones están desajustadas, se necesita una revisión completa del mecanismo.",
+            "video": "https://www.youtube.com/watch?v=SYHXhvnizCs"
+        },
+        {
+            "condiciones": ["Interferencia electromagnética", "Cristal descalibrado o envejecido"],
+            "conclusion": "Requiere recalibración en un ambiente controlado",
+            "explicacion": "Si el reloj tiene interferencia magnética y un cristal descalibrado, debe recalibrarse en un entorno libre de campos electromagnéticos.",
+            "video": "https://www.youtube.com/watch?v=ylGsI1tN_CE"
+        },
+        {
+            "condiciones": ["Cristal roto o deformado", "El reloj tiene componentes sueltos"],
+            "conclusion": "Requiere reparación estructural completa",
+            "explicacion": "Cuando el cristal está roto y hay componentes sueltos, el reloj necesita una revisión estructural integral.",
+            "video": "https://www.youtube.com/watch?v=qyxdFyB-LNo"
+        }
+    ]
+}
